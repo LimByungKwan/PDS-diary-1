@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "tables": [
+    "completion_events",
+    "execution_records",
+    "plan_revisions",
+    "plans",
+    "reviews",
+    "tasks",
+    "subtasks"
+  ],
+  "result": "pass",
+  "checks": [
+    "columns match final migrations",
+    "types required and primary key flags match",
+    "declared foreign keys match"
+  ],
+  "date_rules": "YYYY-MM-DD, no timezone conversion; calendar dates in Asia/Seoul",
+  "timestamps": "RFC3339 input must include offset; normalize to UTC ISO; render in Asia/Seoul",
+  "time_unit": "minutes"
+}

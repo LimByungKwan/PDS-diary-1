@@ -1,0 +1,24 @@
+{
+  "scope": "tracked working source, reachable Git blobs and commit messages, current dist build",
+  "source_files": 136,
+  "history_blobs": 203,
+  "build_files": 72,
+  "secret_patterns": [
+    "openai_key",
+    "github_key",
+    "aws_access_key",
+    "google_key",
+    "slack_key",
+    "private_key",
+    "literal_credential"
+  ],
+  "findings": [],
+  "public_notice_exact": true,
+  "unsafe_html_output_in_diary": false,
+  "storage": "server D1; GET/export returns diary tables only",
+  "pending": [
+    "Actual browser Network/Console inspection",
+    "Browser script-text execution check",
+    "Incognito result and public GitHub fixed-commit URLs"
+  ]
+}

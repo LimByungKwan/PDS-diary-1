@@ -1,0 +1,499 @@
+{
+  "schema_version": 2,
+  "database": "Cloudflare D1 (server SQLite)",
+  "tables": {
+    "completion_events": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "task_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "cycle",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "request_key",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "task_id",
+          "tasks",
+          "id"
+        ]
+      ]
+    },
+    "execution_records": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "task_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "started_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "ended_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "actual_minutes",
+          "type": "real",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "blocked_reason",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "request_key",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "task_id",
+          "tasks",
+          "id"
+        ]
+      ]
+    },
+    "plan_revisions": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "plan_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "version",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "snapshot",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "plan_id",
+          "plans",
+          "id"
+        ]
+      ]
+    },
+    "plans": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "start_date",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "end_date",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "priority",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "success",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "estimated_minutes",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "version",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "source_review_id",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "deleted_at",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "reviews": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "plan_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "start_date",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "end_date",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "improvement",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "snapshot",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "plan_id",
+          "plans",
+          "id"
+        ]
+      ]
+    },
+    "tasks": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "plan_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "due_date",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "priority",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "tags",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "estimated_minutes",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "cycle",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "deleted_at",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "task_kind",
+          "type": "text",
+          "required": true,
+          "primary_key": false,
+          "default": "task",
+          "allowed_values": [
+            "task",
+            "event",
+            "span"
+          ]
+        },
+        {
+          "name": "start_date",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "scheduled_time",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "plan_id",
+          "plans",
+          "id"
+        ]
+      ]
+    },
+    "subtasks": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "text",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "task_id",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "position",
+          "type": "integer",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "deleted_at",
+          "type": "text",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "text",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        [
+          "task_id",
+          "tasks",
+          "id"
+        ]
+      ]
+    }
+  },
+  "relationships": {
+    "plan_revisions.plan_id": "plans.id",
+    "tasks.plan_id": "plans.id",
+    "execution_records.task_id": "tasks.id",
+    "completion_events.task_id": "tasks.id",
+    "reviews.plan_id": "plans.id",
+    "plans.source_review_id": {
+      "target": "reviews.id",
+      "enforcement": "API validates existing review; UNIQUE source_review_id prevents duplicate next plans"
+    },
+    "subtasks.task_id": "tasks.id"
+  },
+  "unique_constraints": {
+    "plan_revisions": [
+      "plan_id + version"
+    ],
+    "completion_events": [
+      "task_id + cycle",
+      "request_key"
+    ],
+    "execution_records": [
+      "request_key"
+    ],
+    "plans": [
+      "source_review_id (nullable)"
+    ]
+  },
+  "rules": {
+    "date_only": "YYYY-MM-DD, no timezone conversion; calendar dates in Asia/Seoul",
+    "timestamps": "RFC3339 input must include offset; normalize to UTC ISO; render in Asia/Seoul",
+    "time_unit": "minutes",
+    "expected_minutes": "integer >= 0",
+    "actual_minutes": "(ended_at - started_at) / 60000 rounded to 3 decimals; must be positive and <= 20160",
+    "soft_delete": "tasks.deleted_at preserves records for export; excludes task and its records from current rollups",
+    "plan_history": "version 1 snapshot at creation; new complete snapshot on every plan edit; ID stable; all updates atomic",
+    "completion": "one event per task ID and completion cycle; undo increments cycle; stale cycle rejected; completion does not create execution record",
+    "aggregation_scope": "current plan, nondeleted tasks; optional inclusive task due_date interval; actual time includes all records attached to those tasks",
+    "planned_count": "number of scoped tasks, not number of plan containers",
+    "completed_count": "scoped tasks with current status completed",
+    "delayed_count": "scoped noncompleted tasks with due_date < Asia/Seoul today",
+    "blocked_count": "distinct scoped task IDs having a nonblank blocked_reason in any record",
+    "estimated": "sum of estimated_minutes on scoped tasks",
+    "actual": "sum of actual_minutes on records attached to scoped tasks",
+    "difference": "actual minus estimated; empty sums are zero",
+    "review_snapshot": "aggregate captured at save time, independent of later status changes",
+    "next_plan": "one successor per saved review; improvement copied exactly into success criterion; provenance source_review_id",
+    "export": "one JSON containing all seven tables including deleted task/subtask rows and immutable plan history",
+    "initial_data": "user-selected five tasks; dates/estimates marked editable proposals; no invented execution records",
+    "duration_input": "UI accepts hours plus minutes (0..59), converts to integer minutes before storage; display uses hours/minutes/seconds without changing exported minute units",
+    "recurrence": "Explicit date-range generation of up to 31 days with selected weekdays. Each date gets its own task ID and due_date; no execution records or completions are generated. Stable SHA256 task ID from plan_id, normalized title and date prevents duplicate retries. Existing active tasks with matching normalized title/date are skipped; deleted deterministic IDs are never resurrected.",
+    "legacy_date_titles": "UI removes recognized trailing date/day suffixes for display and editing; original stored titles remain until explicitly saved. Due date is displayed separately and controls grouping and aggregation.",
+    "subtasks": "Ordered server-persisted checklist under a task with independent active/completed status and soft deletion. Subtasks do not increase parent task counts, time totals, or completion events. Overall task completion remains an explicit user action. Exercise checklist is seeded once with running 3km, dumbbells, ab slide 100 reps; never creates execution records. Repeated new tasks copy active subtask labels with fresh unchecked status and stable IDs. Export includes all subtask rows including deleted ones.",
+    "calendar_views": "Daily single date, weekly Monday-Sunday inclusive, monthly first-last date, all and custom. Calendar cells and planned schedule lists include multiday tasks when [start_date,due_date] overlaps the selected range; ordinary tasks and events appear on due_date. Review aggregates remain due_date-based; actual review time is all records attached to those scoped task IDs, per C32. Execution list filters actual started_at converted to Asia/Seoul. A multiday task is never duplicated across dates in the database or aggregate. New plan fields default to selected period; successor of full month review defaults to next full month.",
+    "task_schedules": {
+      "task": "single deadline; task_kind=task, start_date=null, scheduled_time=null",
+      "event": "fixed exam or appointment date uses due_date; optional scheduled_time HH:mm in Asia/Seoul, start_date=null",
+      "span": "one multiday work item: required start_date <= due_date, due_date is end/deadline; scheduled_time=null; estimate is total for the whole work period; actual daily sessions all attach to the one task ID",
+      "migration": "legacy tasks default to task, new start_date and scheduled_time columns nullable; original IDs dates and estimates unchanged"
+    },
+    "execution_note_edit": "updateRecordNote changes only blocked_reason and note on an existing execution record whose task is not soft-deleted. Preserve record count, IDs, task linkage, timestamps, actual_minutes, request_key, created_at, and all original plan/task fields. No new execution or completion events are generated.",
+    "plan_deletion": "deletePlan checks current version and soft-deletes only plans.deleted_at. Hide the plan from selection and rollups; keep tasks, subtasks, execution records, completion events, plan revisions, reviews and source_review_id intact in export. Reject stale mutations on deleted plans and their children. A deleted successor remains the single successor of its review, and is shown as deleted on that review. Last deletion allows a new plan; initialize never resurrects archived IDs."
+  }
+}

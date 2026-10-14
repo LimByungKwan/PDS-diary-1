@@ -3,7 +3,7 @@
 ## URL
 
 * 결과물: https://byungkwan-pds-diary.quannie70.chatgpt.site
-* 소스: 공개 GitHub에 최종 소스를 올린 뒤 전체 커밋 해시가 포함된 /tree/ 주소를 입력합니다. 아직 공개 소스 주소는 확정하지 않았습니다.
+* 소스: https://github.com/LimByungKwan/PDS-diary-1/tree/f10dc44a4548abd8b5fd52268d72d1435cb38dca
 
 ## 짧은 확인 방법 4줄
 

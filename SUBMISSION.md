@@ -3,7 +3,6 @@
 ## URL
 
 * 결과물: https://byungkwan-pds-diary.quannie70.chatgpt.site
-* 소스: https://github.com/LimByungKwan/PDS-diary-1/tree/f10dc44a4548abd8b5fd52268d72d1435cb38dca
 
 ## 짧은 확인 방법 4줄
 
